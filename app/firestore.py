@@ -1,8 +1,10 @@
+from flask import json
 import firebase_admin
 from firebase_admin import credentials
 from decouple import config
 from firebase_admin import firestore
 import requests
+import itertools
 cred = credentials.Certificate(config("FIRESTORE_JSON"))
 firebase_admin.initialize_app(cred,{
     'projectID' : 'porftfolio-a7d76' 
@@ -24,5 +26,11 @@ def update_github_events(page_num):
         db.collection(u'github-events').document(q['id']).set(data)
 def get_github_events(db):
     github_events = db.collection('github-events').get()
-    github_events = [ event.ghetime for event in github_events ]
-    return github_events
+    github_events = [ event.to_dict() for event in github_events ]
+    github_events = [ (key, list(num for _, num in value)) for key, value in
+            itertools.groupby(github_events, lambda x:x['gheTime']) ]
+    labels = [ github_events[i][0] for i in range(len(github_events)) ]
+    data   = [ len(github_events[i][1]) for i in range(len(github_events)) ]
+    labels = json.dumps(labels)
+    data = json.dumps(data)
+    return labels,data

@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from app.firestore import get_medium, db
+from app.firestore import get_medium, db, get_github_events
 
 def create_app():
     app = Flask(__name__)
@@ -16,8 +16,8 @@ def create_app():
 
     @app.route('/github')
     def github():
-
-        return render_template("github.html")
+        labels, data = get_github_events(db)
+        return render_template("github.html",labels=labels, data=data)
 
 
 

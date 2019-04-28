@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}GitHub{% endblock %}
+{% block head %}
+	{{ super() }}
+{% endblock %}
+<body>
+	{% block menu %}
+		{{ super() }}
+	{% endblock %}
+	<div id = "content">
+	{% block content %}
+	<h1>Github</h1>
+        <div class="ui stackable grid container">
+		<div class="column">
+	
+		<div class="chartjs-wrapper">
+
+
+		<canvas id="line-chart" class="chartjs" width="770" height="385" style="display: block; width: 770px; height: 385px;">
+		{% block javascript %}
+
+		<script>
+			labels = JSON.parse({{ labels | tojson }})
+			data = JSON.parse({{ data | tojson }})
+			var ctx = document.getElementById("line-chart");
+			
+			var chart = new Chart(ctx,{
+				type:"line",
+				data : {
+					"labels":labels,
+					"datasets": [ {
+						"label": "# of events on this date",
+						"data" : data,
+						"fill" : false,
+						"borderColor":"rgb(75,192,192)",
+						"lineTension":0.1}]},
+				options:{
+					title : {
+					display: true,
+					text: "Github Activity Over Time"
+					}}});
+		</script>
+		</div>
+		</div>
+	</div>
+	{% endblock %}
+
+
+	{% endblock %}
+	</div>
+</body>
