@@ -7,5 +7,30 @@
 	{% block menu %}
 		{{ super() }}
 	{% endblock %}
+	<div id = "content">
+	{% block content %}
+	<h1>Blog</h1>
+	
+	<div class="ui items">
+		{% for blog in blog_list %}
+		<div class="item"> 
+			<div class="image"><img src={{ blog.imageUrl }}></div>
+			<div class="content" >
+				<a class="header" href= {{blog.url}}>{{ blog.blog_title}}</a>
+				<div class="meta">
+					<span></span>
+				</div>
+				<div class="description">
+				{{ blog.description }}
+				</div>
+	        	</div>
+		</div>
+		<div class="ui divider"></div>
+	</div>
+
+	{% endfor %}
+	</div>
+	{% endblock %}
+	</div>
 </body>
 

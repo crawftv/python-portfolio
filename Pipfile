@@ -12,6 +12,7 @@ requests = "*"
 google-cloud-firestore = "*"
 python-decouple = "*"
 python-dotenv = "*"
+firebase-admin = "*"
 
 [requires]
 python_version = "3.6"
