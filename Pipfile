@@ -8,6 +8,10 @@ verify_ssl = true
 [packages]
 flask = "*"
 gunicorn = "*"
+requests = "*"
+google-cloud-firestore = "*"
+python-decouple = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.6"

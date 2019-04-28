@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% block head %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139195598-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-139195598-1');
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<title>{% block title %}{% endblock %}</title>
+{% endblock %}
+</head>
+
+<body>
+	{% block menu %}
+	<div class="ui stackable menu">
+	<div class="item">
+	<img src="/images/logo.png">
+	</div>
+	<a class="item" href='/'>Home</a>
+	<a class="item" href="/projects"></a>
+	<a class="item" href="/blog">Blog</a>
+	<a class="item" href="/twitter">Twitter"</a>
+	<a class="item" href = '/github'>GitHub</a>
+	</div>
+	{% endblock %}
+
+</body>
+
+</html>
