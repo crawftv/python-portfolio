@@ -14,7 +14,8 @@ firebase_admin.initialize_app(cred,{
 db = firestore.client()
 
 def get_medium(db):
-    docs = db.collection('medium-stories').get()
+    docs = db.collection('medium-stories').order_by(u'publish_num',
+            direction=firestore.Query.DESCENDING).get()
     blog_list = [ doc.to_dict() for doc in docs]
     return blog_list
 
