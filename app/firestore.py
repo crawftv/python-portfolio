@@ -5,7 +5,7 @@ from decouple import config
 from firebase_admin import firestore
 import requests
 import itertools
-
+import re
 cred = credentials.Certificate(config("FIRESTORE_JSON"))
 firebase_admin.initialize_app(cred,{
     'projectID' : 'porftfolio-a7d76' 
@@ -48,11 +48,25 @@ def update_repos(db,page_num):
 def update_repo_files(db):
     repos = db.collection('git-repos').get()
     repos = [ repo.to_dict() for repo in repos ]
-    for i in repos:
-        sha = requests.get('https://api.github.com/repos/'+config("GITHUB_USERNAME")+"/"+i["repo_name"]+"/commits")
+    for repo in repos:
+        sha = requests.get('https://api.github.com/repos/'+config("GITHUB_USERNAME")+"/"+repo["repo_name"]+"/commits")
         sha = sha.json()[0]["sha"]
-        tree = requests.get('https://api.github.com/repos/'+config("GITHUB_USERNAME")+"/"+repo["repo_name"]+
-                    '/git/trees/'+sha+'?recursive=1').json()
+        try:
+            tree = requests.get('https://api.github.com/repos/'+config("GITHUB_USERNAME")+"/"+repo["repo_name"]+
+                        '/git/trees/'+sha+'?recursive=1').json()
 
-        tree = [ t["path"] for t in tree["tree"] ]
-        db.collection(u'git-repos').document(str(i["repo_name"])).set({u'tree': tree }, merge=True)
+            tree = [ t["path"] for t in tree["tree"] ]
+            tree = check_file_type(tree)
+            db.collection(u'git-repos').document(str(repo["repo_name"])).set({u'tree': tree }, merge=True)
+        except:
+            pass
+
+#UTILITU FUNCTIONS BELOW
+def check_file_type(list_string):
+    new_list = []
+    for s in list_string:
+        if re.match(r'^.*(node_modules|solutions)\\',s):
+            pass
+        elif re.match(r'^.*\.(py|js|jl|elm|ipynb|html)',s):
+            new_list.append(s)
+    return new_list
