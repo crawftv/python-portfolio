@@ -44,3 +44,15 @@ def update_repos(db,page_num):
     for q in query:
         data = {u'repo_name':q['name'], u'repo_id':q["id"] }
         db.collection(u'git-repos').document(str(q['name'])).set(data)
+
+def update_repo_files(db):
+    repos = db.collection('git-repos').get()
+    repos = [ repo.to_dict() for repo in repos ]
+    for i in repos:
+        sha = requests.get('https://api.github.com/repos/'+config("GITHUB_USERNAME")+"/"+i["repo_name"]+"/commits")
+        sha = sha.json()[0]["sha"]
+        tree = requests.get('https://api.github.com/repos/'+config("GITHUB_USERNAME")+"/"+repo["repo_name"]+
+                    '/git/trees/'+sha+'?recursive=1').json()
+
+        tree = [ t["path"] for t in tree["tree"] ]
+        db.collection(u'git-repos').document(str(i["repo_name"])).set({u'tree': tree }, merge=True)
