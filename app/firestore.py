@@ -19,6 +19,14 @@ def get_medium(db):
     blog_list = [ doc.to_dict() for doc in docs]
     return blog_list
 
+def get_projects(db):
+    projects = db.collection('projects').order_by('class',
+            direction=firestore.Query.ASCENDING).get()
+    projects = [doc.to_dict() for doc in projects]
+    return projects
+
+
+
 def update_github_events(db, page_num):
     r = requests.get('https://api.github.com/users/'+config("GITHUB_USERNAME")+
             '/events?page='+str(page_num))
@@ -61,12 +69,12 @@ def update_repo_files(db):
         except:
             pass
 
-#UTILITU FUNCTIONS BELOW
+#UTILITY FUNCTIONS BELOW
 def check_file_type(list_string):
     new_list = []
     for s in list_string:
-        if re.match(r'^.*(node_modules|solutions)\\',s):
+        if re.match(r'^*(node_modules|solutions)\\',s):
             pass
-        elif re.match(r'^.*\.(py|js|jl|elm|ipynb|html)',s):
+        elif re.match(r'^.*\.(py|js|jl|elm|ipynb|html|ts)',s):
             new_list.append(s)
     return new_list

@@ -70,11 +70,11 @@
                 "grpc"
             ],
             "hashes": [
-                "sha256:5dcf8895690b4b95c1d96f77a314fcc5674a5e2db925343b3f67df3f0882967e",
-                "sha256:fc1fea74bd863fb71486066e0c6b3a4dad26fb70ec61a0edcada8637feb77c68"
+                "sha256:9e6f4daf193be1c0230fc7a539058f7681c0a9741a02292614d0c9e3e091f4fc",
+                "sha256:c69bad1ae3e193764028f5ec58049d1d8ef81efd0320cf110c712cd1292daeab"
             ],
             "markers": "platform_python_implementation != 'PyPy'",
-            "version": "==1.9.0"
+            "version": "==1.10.0"
         },
         "google-auth": {
             "hashes": [
@@ -92,11 +92,11 @@
         },
         "google-cloud-firestore": {
             "hashes": [
-                "sha256:4ae5a5568d65b9082759c352144e306fd4c4109bed9fc400844be185d1c822d2",
-                "sha256:59d2907d717086a629ac3b7006ef9d9e93b887060c0d6384ec9220e3cdda1112"
+                "sha256:b1f43c610c47437013c1db993c51b205fa5ecb14cde7b23be22ab2a889554250",
+                "sha256:fc3d3c4ec3bb012928682b239f1add0df7920d8176aa03e9b51ce1b00ab9297f"
             ],
             "index": "pypi",
-            "version": "==0.32.1"
+            "version": "==1.1.0"
         },
         "google-cloud-storage": {
             "hashes": [
@@ -114,9 +114,9 @@
         },
         "googleapis-common-protos": {
             "hashes": [
-                "sha256:627ec53fab43d06c1b5c950e217fa9819e169daf753111a7f244e94bf8fb3384"
+                "sha256:d564872083af40bbcc7091340f17db778a316525c7c76497d58d11b98ca2aa74"
             ],
-            "version": "==1.5.9"
+            "version": "==1.5.10"
         },
         "grpcio": {
             "hashes": [
