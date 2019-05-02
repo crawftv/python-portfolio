@@ -7,5 +7,37 @@
 	{% block menu %}
 		{{ super() }}
 	{% endblock %}
+	{% block content %}
+	<div class="ui stackable grid container">
+	<div class = "equal width row">
+		<div class="column">
+		<div class="ui card">
+			<div class ="image">
+				<img src="https://raw.githubusercontent.com/crawftv/blog_photos/master/profile_pic.jpeg">
+			</div>
+			<div class="content">
+				<div class="header">Crawford Collins</div>
+				<div class="meta">Data Scientist</div>
+			</div>
+		</div>
+		</div>
+		<div class="column">
+		<div class="ui items">
+			<div class="item">
+				<div class="content">
+					<div class="header">Header</div>
+					<div class="content"><p></p><p></p></div>
+				</div>		
+			</div>
+			<div class="item">
+				<div class="content">
+					<div class="header">Header</div>
+					<div class="content"><p></p><p></p></div>
+				</div>		
+			</div>
+		</div>
+		</div>
+	</div>
+	{% endblock %}
 </body>
 
