@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from firestore import get_medium, db, get_github_events, get_projects
+from firestore_utilities import get_medium, db, get_github_events, get_projects
 
 
 application = Flask(__name__)
@@ -7,7 +7,7 @@ application = Flask(__name__)
 
 @application.route('/')
 def root():
-    return render_template('root.html')
+    return render_template('root2.html')
 
 @application.route('/blog')
 def blog():
@@ -27,6 +27,10 @@ def projects():
 @application.route('/twitter')
 def twitter():
     return render_template('twitter.html')
+
+# @application.route('/test')
+# def test():
+#     return render_template("root2.html")
 
 if __name__ == "__main__":
     application.run(host='0.0.0.0')

@@ -112,3 +112,5 @@ venv.bak/
 !.elasticbeanstalk/*.global.yml
 
 portfolioenv/
+
+

@@ -6,6 +6,8 @@ from firebase_admin import firestore
 import requests
 import itertools
 import re
+import time
+
 cred = credentials.Certificate(config("FIRESTORE_JSON"))
 firebase_admin.initialize_app(cred,{
     'projectID' : 'porftfolio-a7d76' 
@@ -57,6 +59,7 @@ def update_repo_files(db):
     repos = db.collection('git-repos').get()
     repos = [ repo.to_dict() for repo in repos ]
     for repo in repos:
+        time.sleep(120)
         sha = requests.get('https://api.github.com/repos/'+config("GITHUB_USERNAME")+"/"+repo["repo_name"]+"/commits")
         sha = sha.json()[0]["sha"]
         try:
@@ -66,6 +69,7 @@ def update_repo_files(db):
             tree = [ t["path"] for t in tree["tree"] ]
             tree = check_file_type(tree)
             db.collection(u'git-repos').document(str(repo["repo_name"])).set({u'tree': tree }, merge=True)
+            print(repo["repo_name"])
         except:
             pass
 
@@ -73,8 +77,8 @@ def update_repo_files(db):
 def check_file_type(list_string):
     new_list = []
     for s in list_string:
-        if re.match(r'^*(node_modules|solutions)\\',s):
+        if re.match(r'^.*(node_modules|solutions|elm-stuff)',s):
             pass
-        elif re.match(r'^.*\.(py|js|jl|elm|ipynb|html|ts)',s):
+        elif re.match(r'^.*\.(py|js|jl|elm|ipynb|html|ts|sh|php)',s):
             new_list.append(s)
     return new_list
