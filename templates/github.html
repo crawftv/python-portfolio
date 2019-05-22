@@ -9,15 +9,26 @@
 	{% endblock %}
 	<div id = "content">
 	{% block content %}
+
 	<h1>Github</h1>
-	<h3><a href="https://github.com/crawftv">View Full Github Profile</a>
+	<h3><a href="https://github.com/crawftv">View Full Github Profile</a></h3>
+	<div class="ui statistics">
+		<div class="statistic">
+			<div class="value">
+				{{ num_events }}
+			</div>
+			<div class="label">
+			Github Events
+			</div>
+		</div>
+	</div>
         <div class="ui stackable grid container">
 		<div class="column">
 	
-		<div class="chartjs-wrapper">
+			<div class="chartjs-wrapper"> 
 
 
-		<canvas id="line-chart" class="chartjs" width="770" height="385" style="display: block; width: 770px; height: 385px;">
+		<canvas id="line-chart" class="chartjs" width="3" height="1" style="display: block; width: 770px; height: 385px;">
 		{% block javascript %}
 
 		<script>
