@@ -6,51 +6,43 @@
 <body>
 	{% block menu %}
 		{{ super() }}
-	{% endblock %}
+    {% endblock %}
     {% block content %}
-    <div class="ui hidden divider"></div>
-	<div class="ui stackable relaxed grid container">
-		<div class="ui cards">
-            <div class = "card">
-                <div class ="image">
-                    <img src="https://raw.githubusercontent.com/crawftv/blog_photos/master/profile_pic.jpeg">
-                </div>
-                <div class="content">
-                    <div class="header">Crawford Collins</div>
-                    <div class="meta">Data Scientist</div>
-                </div>
-            </div>
-            <div class ="card">
-                <div class="content">
-                    <div class="header">About Me</div>
-                    <div class="ui fitted divider"></div>
+        <div class="ui relaxed grid container">
+            <div class="ui cards">
+                <div class="card">
+                    <div class="image">
+                        <img src="https://raw.githubusercontent.com/crawftv/blog_photos/master/profile_pic.jpeg">
+                    </div>
                     <div class="content">
-                        <p>
-                            <br>
-                            I am a data scientist currently focusing on building data intensive applications. 
-                            I use data to solve problems and visualizations to tell stories.
-                            I explore networks and work on creating better recomendation systems.
-                            <br>
-                            <br>
-                            I want to work on High Performance Computing and making code fast and efficient.
-                            I have spent almost all my time working in Python, but other languages I would like 
-                            to use more are Julia, Swift, & Spark.
-                            <br>
-                            <br>
-                            Before switching careers and becoming a data scientist I worked in the investment industry.
-    
-                        </p>
+                        <div class="header">Crawford Collins</div>
+                        <div class="meta">Data Scientist</div>
                     </div>
                 </div>
-            </div>
-            <div class = "card">
-                <div class="content">
-                    <div class="header">Education</div>
-                    <div class="ui fitted divider"></div>
-                    <div class="ui bulleted list">
+                <div class="card">
+                    <div class="content">
+                        <div class="header">About Me</div>
+                        <div class="ui fitted divider"></div>
+                        <div class="content">
+                            <p>
+                                <br> I am a data scientist currently focusing on building data intensive applications. I use data to solve problems and visualizations to tell stories. I explore networks and work on creating better recomendation systems.
+                                <br>
+                                <br> I want to work on High Performance Computing and making code fast and efficient. I have spent almost all my time working in Python, but other languages I would like to use more are Julia, Swift, & Spark.
+                                <br>
+                                <br> Before switching careers and becoming a data scientist I worked in the investment industry.
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <div class="header">Education</div>
+                        <div class="ui fitted divider"></div>
+                        <div class="ui bulleted list">
                             <div class="item">
                                 <div><b>Data Science at Lambda School</b></div>
-                                <div class ="list">
+                                <div class="list">
                                     <div class="item">9 month full time course</div>
                                     <div class="item">
                                         <div>Curriculum</div>
@@ -67,20 +59,19 @@
                             </div>
                             <div class="item">
                                 <div><b>Graduate of The University of Alabama</b></div>
-                                <div class ="list">
+                                <div class="list">
                                     <div class="item">Bachelors degree in Finance</div>
                                     <div class="item">Minor in statistics</div>
                                     <div class="item">Dean's List, Presidential Scholar, Outstanding Student in Finance</div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class ="card">
-                <div class="content">
-                    <div class="header">Areas of Interest and Study</div>
-                    <div class="ui fitted divider"></div>
+                <div class="card">
+                    <div class="content">
+                        <div class="header">Areas of Interest and Study</div>
+                        <div class="ui fitted divider"></div>
                         <div class="content">
                             <div class="ui bulleted list">
                                 <div class="item">Networks</div>
@@ -91,25 +82,29 @@
                                 <div class="item">Automation</div>
                             </div>
                         </div>
+                    </div>
                 </div>
-            </div>
-            <div class ="card">
-                <div class="content">
-                <div class="header">Favorite Tools</div>
-                <div class="ui fitted divider"></div>
-                <div class="content">
-                        <div class="ui bulleted list">
-                            <div class="item">Pandas & scikit-learn</div>
-                            <div class="item">Keras</div>
-                            <div class="item">Google Cloud Functions</div>
-                            <div class="item">Flask</div>
-                            <div class="item">NetworkX</div>
-                            <div class="item">Annoy</div>
-                        <div>
+                <div class="card">
+                    <div class="content">
+                        <div class="header">Favorite Tools</div>
+                        <div class="ui fitted divider"></div>
+                        <div class="content">
+                            <div class="ui bulleted list">
+                                <div class="item">Pandas & scikit-learn</div>
+                                <div class="item">Keras</div>
+                                <div class="item">Google Cloud Functions</div>
+                                <div class="item">Flask</div>
+                                <div class="item">NetworkX</div>
+                                <div class="item">Annoy</div>
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-	{% endblock %}
+    {% endblock %}
 </body>
 

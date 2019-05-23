@@ -79,7 +79,7 @@ def update_repo_files(db):
     repos = db.collection("git-repos").get()
     repos = [repo.to_dict() for repo in repos]
     for repo in repos:
-        time.sleep(120)
+
         sha = requests.get(
             "https://api.github.com/repos/"
             + config("GITHUB_USERNAME")
@@ -87,8 +87,9 @@ def update_repo_files(db):
             + repo["repo_name"]
             + "/commits"
         )
-        sha = sha.json()[0]["sha"]
-        try:
+        if sha.status_code == 200:
+            sha = sha.json()[0]["sha"]
+            time.sleep(61)
             tree = requests.get(
                 "https://api.github.com/repos/"
                 + config("GITHUB_USERNAME")
@@ -97,16 +98,20 @@ def update_repo_files(db):
                 + "/git/trees/"
                 + sha
                 + "?recursive=1"
-            ).json()
-
-            tree = [t["path"] for t in tree["tree"]]
-            tree = check_file_type(tree)
-            db.collection(u"git-repos").document(str(repo["repo_name"])).set(
-                {u"tree": tree}, merge=True
             )
-            print(repo["repo_name"])
-        except:
-            pass
+            if tree.status_code == 200:
+                tree = tree.json()
+                tree = [t["path"] for t in tree["tree"]]
+                tree = check_file_type(tree)
+                db.collection(u"git-repos").document(str(repo["repo_name"])).set(
+                    {u"tree": tree}, merge=True
+                )
+                print(repo["repo_name"])
+                time.sleep(61)
+            else:
+                print(tree.status_code, "  ", repo["repo_name"])
+    else:
+        print(sha.status_code, "   ", repo["repo_name"])
 
 
 # UTILITY FUNCTIONS BELOW

@@ -4,7 +4,6 @@
 {% block head %}
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139195598-1"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"> </script>
 <script>
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
@@ -24,7 +23,7 @@
 
 <body>
 	{% block menu %}
-	<div class="ui stackable menu">
+	<div class="ui stackable container menu">
 	<a class="item" href='/'>CrawfordC.com</a>
 	<a class="item" href="/projects">Projects</a>
 	<a class="item" href="/blog">Blog</a>
@@ -32,9 +31,14 @@
 	<a class="item" href= '/github'>GitHub</a>
 	</div>
 	{% endblock %}
-	{% block content %}
-	{% endblock %}
+	{% block main_container %}
+	<div class="ui hidden divider"></div>
+	<div class="ui main container">
+		{% block content %}
 
+		{% endblock %}
+	</div>
+	{% endblock %}
 </body>
 
 </html>

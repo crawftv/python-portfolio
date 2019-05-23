@@ -7,10 +7,10 @@
 	{% block menu %}
 		{{ super() }}
 	{% endblock %}
-	<div id = "content">
-	{% block content %}
-	<h1>Blog</h1>
 	
+	{% block content %}
+	<h1 class="ui center aligned header">Blog</h1>
+	<div class="ui hidden divider"></div>
 	<div class="ui items">
 		{% for blog in blog_list %}
 		<div class="item"> 
