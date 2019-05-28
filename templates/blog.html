@@ -8,29 +8,29 @@
 		{{ super() }}
 	{% endblock %}
 	
-	{% block content %}
-	<h1 class="ui center aligned header">Blog</h1>
-	<div class="ui hidden divider"></div>
-	<div class="ui items">
-		{% for blog in blog_list %}
-		<div class="item"> 
-			<div class="image"><img src={{ blog.imageUrl }}></div>
-			<div class="content" >
-				<a class="header" href= {{blog.url}}>{{ blog.blog_title}}</a>
-				<div class="meta">
-					<span></span>
-				</div>
-				<div class="description">
-				{{ blog.description }}
-				</div>
-	        	</div>
+		{% block content %}
+		<h1 class="ui center aligned header">Blog</h1>
+		<div class="ui hidden divider"></div>
+		<div class="ui items">
+			{% for blog in blog_list %}
+			<div class="item"> 
+				<div class="image"><img src={{ blog.imageUrl }}></div>
+				<div class="content" >
+					<a class="header" href= {{blog.url}}>{{ blog.blog_title}}</a>
+					<div class="meta">
+						<span></span>
+					</div>
+					<div class="description">
+					{{ blog.description }}
+					</div>
+					</div>
+			</div>
+			<div class="ui divider"></div>
+		
+		{% endfor %}
 		</div>
-		<div class="ui divider"></div>
-	
-	{% endfor %}
-	</div>
-	</div>
-	{% endblock %}
+		</div>
+		{% endblock %}
 	</div>
 </body>
 

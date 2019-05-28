@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+{% block head %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139195598-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-139195598-1');
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<title>{% block title %}{% endblock %}</title>
+{% endblock %}
+</head>
+
+<body style="background-color:rgb(8,44,76);">
+	{% block menu %}
+	<div class="ui stackable container menu">
+	<a class="item" href='/'>CrawfordC.com</a>
+	<a class="item" href="/projects">Projects</a>
+	<a class="item" href="/blog">Blog</a>
+	<a class="item" href="/twitter">Twitter</a>
+	<a class="item" href= '/github'>GitHub</a>
+	</div>
+	{% endblock %}
+	{% block main_container %}
+	<div class="ui hidden divider"></div>
+	<div class="ui main container" style="background-color: rgb(241,245,247)">
+		{% block content %}
+
+		{% endblock %}
+	</div>
+	{% endblock %}
+</body>
+
+</html>

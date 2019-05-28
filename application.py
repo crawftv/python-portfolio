@@ -7,7 +7,7 @@ application = Flask(__name__)
 
 @application.route("/")
 def root():
-    return render_template("root2.html")
+    return render_template("root.html")
 
 
 @application.route("/blog")
@@ -35,9 +35,9 @@ def twitter():
     return render_template("twitter.html")
 
 
-# @application.route('/test')
-# def test():
-#     return render_template("root2.html")
+@application.route('/test')
+def test():
+    return render_template("root2.html")
 
 if __name__ == "__main__":
     application.run(host="0.0.0.0")
