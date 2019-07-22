@@ -14,6 +14,11 @@ python-decouple = "*"
 python-dotenv = "*"
 firebase-admin = "*"
 papermill = {extras = ["s3"],version = "*"}
+prefect = "*"
+black = "*"
 
 [requires]
 python_version = "3.6"
+
+[pipenv]
+allow_prereleases = true
