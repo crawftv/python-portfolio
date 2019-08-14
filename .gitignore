@@ -112,5 +112,4 @@ venv.bak/
 !.elasticbeanstalk/*.global.yml
 
 portfolioenv/
-
-
+*.pem
