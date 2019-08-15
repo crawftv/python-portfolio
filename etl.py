@@ -19,8 +19,8 @@ def update_github_stats():
     )
 
 
-with Flow("ETL", schedule=CronSchedule("0 9 * * *")) as flow:
-    update_github_stats = update_github_stats()
+with Flow("ETL", schedule=CronSchedule("0 0 * * *")) as flow:
+   update_github_stats()
 
 if __name__ == "__main__":
     flow.run()

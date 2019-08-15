@@ -16,6 +16,8 @@ firebase-admin = "*"
 papermill = {extras = ["s3"],version = "*"}
 prefect = "*"
 black = "*"
+jupyter = "*"
+blackcellmagic = "*"
 
 [requires]
 python_version = "3.6"
